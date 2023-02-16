@@ -1,8 +1,9 @@
+import LogInModal from "../components/LogInModal"
 
 function LoginPage() {
     return(
         <>
-        <h1>Login Page</h1>
+        <LogInModal/>
         </>
     )
 }

@@ -13,3 +13,76 @@ body{
   display: flex;
   flex-direction: column;
 }
+
+.head-top{
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: baseline;
+  margin-right: 30px;
+}
+
+.cancel{
+  border: none;
+  background-color: transparent;
+}
+
+.modalBody{
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+ 
+  
+}
+
+.modalHeader{
+  font-size: 30px;
+}
+
+.modal_form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  align-items: baseline;
+  margin:auto;
+}
+
+.input-style{
+  width: 100%;
+  height: 40px;
+}
+
+.modalFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 10px;
+
+}
+
+
+.modalButton{
+  width: 450px;
+  border: none;
+  height: 50px;
+  
+}
+
+.top{
+  background-color: black;
+  color: white;
+}
+
+.bottom{
+  border: 2px solid black;
+  background-color: transparent;
+}
+
+.remember{
+  display: flex;
+  gap: 8px;
+}

@@ -13,25 +13,31 @@ header{
 }
   
 .logo{
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
   
 .headerRight{
     display: flex;
-    gap: 12px;
+    gap: 18px;
 }
   
 img{
     height: 30px;
     width: 30px;
+
 }
   
 .rightContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    cursor: pointer;
     
+}
+
+
+.rightText{
+    font-size: 18px;
 }
   

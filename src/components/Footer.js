@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import classes from './Footer.module.css'
 
 function Footer(){
@@ -7,7 +8,7 @@ function Footer(){
             <div  className={classes.block}>
                 <h4>Kurumsal Bilgiler</h4>
                 <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/" >Anasayfa</a>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Hakkimizda</a>
+                <Link to='/about'>Hakkimizda</Link>
                 <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Mağazalarimiz</a>
                 <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Bize Ulaşin</a>
 

@@ -1,8 +1,7 @@
 .footer{
     font-family: var(--main-font-family);
-  
     background-color:#e4e4e4;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
