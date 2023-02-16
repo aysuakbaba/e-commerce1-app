@@ -1,0 +1,37 @@
+:root{
+    --main-font-family :'Raleway', sans-serif;
+  }
+
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    padding: 30px;
+    font-family: var(--main-font-family);
+    width: 100%;  
+}
+  
+.logo{
+    height: 50px;
+    width: 50px;
+}
+  
+.headerRight{
+    display: flex;
+    gap: 12px;
+}
+  
+img{
+    height: 30px;
+    width: 30px;
+}
+  
+.rightContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+  
