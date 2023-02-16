@@ -6,24 +6,24 @@ function Footer(){
         <>
          <div className={classes.footer}>
             <div  className={classes.block}>
-                <h4>Kurumsal Bilgiler</h4>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/" >Anasayfa</a>
-                <Link to='/about'>Hakkimizda</Link>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Mağazalarimiz</a>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Bize Ulaşin</a>
+                <h4>Corporate Informations</h4>
+                <Link to='/' >HomePage</Link>
+                <Link to='/about'>About Us</Link>
+                <Link to='/store'>Stores</Link>
+                <Link to='/contact'>Contact Us</Link>
 
             </div>
             <div className={classes.block}>
-                <h4>Müşteri İlişkileri</h4>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Gizlilik Politikasi</a>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Mesafeli Satiş Sözleşmesi</a>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Kargo Teslimat</a>
+                <h4>Customer Relationships</h4>
+                <Link to='/privacy'>Privacy Policy</Link>
+                <Link to='/distanceSelling'>Distance Selling Contract</Link>
+                <Link to='/cargoDelivery'>Cargo Delivery</Link>
 
             </div>
             <div className={classes.block}>
-                <h4>Yardim</h4>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Müşteri Hizmetleri</a>
-                <a href="https://www.linkedin.com/in/aysu-akbaba-a18483223/">Kargo Takibi</a>
+                <h4>Help</h4>
+                <Link to='/customerServices'>Customer Services</Link>
+                <Link to='/cargoTracking'>Cargo Tracking</Link>
 
             </div>
 

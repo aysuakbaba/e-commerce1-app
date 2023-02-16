@@ -8,7 +8,7 @@ import classes from "./MainNavigation.module.css";
 import LogInModal from "./LogInModal";
 
 function MainNavigation() {
-  const [modal, setModal] = useState(true)
+  const [modal, setModal] = useState(false)
   function toggle() {
     setModal((prevModal) => !prevModal)
   }
