@@ -1,25 +1,18 @@
 import React from "react";
 import { Modal, ModalBody } from "reactstrap";
 import cancel from "../assets/close.png";
-import SignUpModal from "./SignUpModal";
 
-function LogInModal(props) {
-  const [signUpModal, setSignUpModal] = React.useState(false);
 
-  function signUpToggle() {
-    setSignUpModal((prevSignUpModal) => !prevSignUpModal);
-  }
+function SignUpModal(props) {
+  
 
-  function handleClick() {
-    props.toggle();
-    signUpToggle();
-  }
+
 
   return (
     <div>
       <Modal isOpen={props.modal} toggle={props.toggle} centered="lg">
         <div className="head-top">
-          <header className="modalHeader">Sign In</header>
+          <header className="modalHeader">Sign Up</header>
           <button className="cancel" onClick={props.toggle}>
             <img src={cancel} alt="cancel" />
           </button>
@@ -44,25 +37,25 @@ function LogInModal(props) {
               className="input-style"
             />
             <br />
-            <div className="remember">
-              <input type="checkbox" id="remember_me" name="rememberMe" />
-              <label for="remember"> Remember me</label>
+            <div className="date">
+              <label for="date">Birthday</label>
+              <input type="date" id="date-time" name="date" />
+
               <br />
             </div>
           </form>
         </ModalBody>
         <div className="modalFooter">
           <button onClick={props.toggle} className="modalButton top">
-            Sign In
+            Sign Up
           </button>{" "}
-          <button onClick={handleClick} className="modalButton bottom">
-            Register
-          </button>
+          <button className="modalButton bottom" onClick={props.toggle}>Sign In</button>
         </div>
       </Modal>
-      <SignUpModal modal={signUpModal} toggle={handleClick} />
+      
+
     </div>
   );
 }
 
-export default LogInModal;
+export default SignUpModal;

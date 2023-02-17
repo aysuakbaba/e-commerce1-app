@@ -30,7 +30,7 @@ body{
 .modalBody{
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 340px;
  
   
 }
@@ -54,15 +54,6 @@ body{
   height: 40px;
 }
 
-.modalFooter{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-  gap: 10px;
-
-}
 
 
 .modalButton{
@@ -85,4 +76,26 @@ body{
 .remember{
   display: flex;
   gap: 8px;
+
 }
+
+.date{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date input{
+  width: 447px;
+  height: 40px;
+}
+
+.modalFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+

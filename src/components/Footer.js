@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import classes from './Footer.module.css'
+import { LinkStyle } from '../styles/LinkStyle'
 
 function Footer(){
     return(
@@ -7,23 +7,23 @@ function Footer(){
          <div className={classes.footer}>
             <div  className={classes.block}>
                 <h4>Corporate Informations</h4>
-                <Link to='/' >HomePage</Link>
-                <Link to='/about'>About Us</Link>
-                <Link to='/store'>Stores</Link>
-                <Link to='/contact'>Contact Us</Link>
+                <LinkStyle to='/' >HomePage</LinkStyle>
+                <LinkStyle to='/about'>About Us</LinkStyle>
+                <LinkStyle to='/store'>Stores</LinkStyle>
+                <LinkStyle to='/contact'>Contact Us</LinkStyle>
 
             </div>
             <div className={classes.block}>
                 <h4>Customer Relationships</h4>
-                <Link to='/privacy'>Privacy Policy</Link>
-                <Link to='/distanceSelling'>Distance Selling Contract</Link>
-                <Link to='/cargoDelivery'>Cargo Delivery</Link>
+                <LinkStyle to='/privacy'>Privacy Policy</LinkStyle>
+                <LinkStyle to='/distanceSelling'>Distance Selling Contract</LinkStyle>
+                <LinkStyle to='/cargoDelivery'>Cargo Delivery</LinkStyle>
 
             </div>
             <div className={classes.block}>
                 <h4>Help</h4>
-                <Link to='/customerServices'>Customer Services</Link>
-                <Link to='/cargoTracking'>Cargo Tracking</Link>
+                <LinkStyle to='/customerServices'>Customer Services</LinkStyle>
+                <LinkStyle to='/cargoTracking'>Cargo Tracking</LinkStyle>
 
             </div>
 

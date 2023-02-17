@@ -10,6 +10,7 @@ import DistanceSelling from './pages/DistanceSelling';
 import CargoDelivery from './pages/CargoDelivery';
 import CustomerServices from './pages/CustomerServices';
 import CargoTracking from './pages/CargoTracking';
+import Favourites from './pages/Favourites';
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   element:<RootLayout/>,
   children: [
     {index:true , element: <HomePage/>},
+    {path:'/favourites', element:<Favourites/>},
     {path:'/about', element: <About/>},
     {path: '/store', element: <Store/>},
     {path: '/contact', element: <Contact/>},
@@ -25,8 +27,6 @@ const router = createBrowserRouter([
     {path:'/cargoDelivery', element:<CargoDelivery/>},
     {path:'/customerServices', element: <CustomerServices/>},
     {path:'/cargoTracking', element: <CargoTracking/>}
-
-
   ]
   }
 ])
