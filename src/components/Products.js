@@ -3,6 +3,7 @@ import product_data from "../dummyData/product_data";
 import SingleProduct from "./SingleProduct";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css'; 
+import classes from '../components/Products.module.css'
 
 function Products() {
     const responsive = {
@@ -35,10 +36,10 @@ function Products() {
     );
   });
   return (
-    <div className="products">
-      <h3 className="popular">Popular Categories</h3>
+    <div className={classes.products}>
+      <h3 className={classes.popular}>Popular Categories</h3>
       
-      <Carousel responsive={responsive} className="carouselItem">
+      <Carousel responsive={responsive} className={classes.carouselItem}>
         {products}
         </Carousel>;
     </div>

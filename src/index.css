@@ -111,16 +111,6 @@ body{
   align-items: center;
 }
 
-.products{
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.popular{
-  margin: auto;
-  
-}
 
 
 .product-image{
@@ -128,10 +118,6 @@ body{
   width: 100px;
 }
 
-.carouselItem{
-  width: 1000px;
-  margin: auto;
-}
 
 
 .product-info{
