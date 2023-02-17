@@ -9,7 +9,7 @@ const divStyle = {
   alignItems: "center",
   justifyContent: "center",
   backgroundSize: "cover",
-  height: "800px",
+  height: "820px",
   
 };
 

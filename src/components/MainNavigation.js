@@ -9,8 +9,16 @@ import LogInModal from "./LogInModal";
 import { LinkStyle } from '../styles/LinkStyle';
 import redHeart from '../assets/redheart.png'
 import user from '../assets/user1.png'
+import blackCart from '../assets/blackCart.png'
 
 function MainNavigation() {
+  const [isCartHovered, setIsCartHovered] = useState(false)
+  function cartHovered(){
+    setIsCartHovered(true)
+  }
+  function cartNotHovered(){
+    setIsCartHovered(false)
+  }
   const [isloginHovered, setIsloginHovered] = useState(false)
   function loginHovered(){
     setIsloginHovered(true)
@@ -47,8 +55,8 @@ function MainNavigation() {
             <img className="head-right-img" src={isHeartHovered ? redHeart : favourites}  alt="favourites" />
             <LinkStyle to='/favourites' >Favourites</LinkStyle>
           </div>
-          <div className={classes.rightContainer}>
-            <img src={cart} alt="cart" />
+          <div className={classes.rightContainer} onMouseEnter={cartHovered} onMouseLeave={cartNotHovered}>
+            <img src={isCartHovered ? blackCart : cart} alt="cart" />
             <LinkStyle>Shopping Cart (0)</LinkStyle>
           </div>
         </div>
