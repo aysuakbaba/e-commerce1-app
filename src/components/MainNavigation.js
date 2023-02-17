@@ -8,10 +8,19 @@ import classes from "./MainNavigation.module.css";
 import LogInModal from "./LogInModal";
 import { LinkStyle } from '../styles/LinkStyle';
 import redHeart from '../assets/redheart.png'
+import user from '../assets/user1.png'
 
 function MainNavigation() {
+  const [isloginHovered, setIsloginHovered] = useState(false)
+  function loginHovered(){
+    setIsloginHovered(true)
+  }
 
-  const [isHeartHovered, setisHeartHovered] = useState(true)
+  function loginNotHovered(){
+    setIsloginHovered(false)
+  }
+
+  const [isHeartHovered, setisHeartHovered] = useState(false)
   function fullHeart() {
     setisHeartHovered(true)
   }
@@ -29,8 +38,8 @@ function MainNavigation() {
           <img src={logo} alt="logo" className={classes.logo} />
         </NavLink>
         <div className={classes.headerRight}>
-            <div onClick={toggle} className={classes.rightContainer}>
-              <img src={login} alt="login" />
+            <div onClick={toggle} className={classes.rightContainer} onMouseEnter={loginHovered} onMouseLeave={loginNotHovered}>
+              <img src={isloginHovered ? user : login} alt="login" />
               <LinkStyle>Login</LinkStyle>
             </div>
           
