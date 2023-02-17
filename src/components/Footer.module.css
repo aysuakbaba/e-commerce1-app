@@ -4,17 +4,24 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 140px;
-    padding: 40px;
+    
   }
   
   .block{
     display: flex;
     flex-direction: column;
     line-height: 30px;
+  }
+
+
+  .container{
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 140px;
+    padding: 40px;
+    margin: auto;
   }
 
   

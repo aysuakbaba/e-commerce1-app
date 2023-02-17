@@ -11,7 +11,6 @@ import womanCrop from '../assets/kadinbluz.png'
 import womanSweater from '../assets/kadinhirka.png'
 import womanPant from '../assets/kadinpant.png'
 import sweatshirt from '../assets/sweatshirt.png'
-import bag from '../assets/bag.png'
 
 
 const product_data = [

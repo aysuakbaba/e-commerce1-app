@@ -60,7 +60,7 @@ function LogInModal(props) {
           </button>
         </div>
       </Modal>
-      <SignUpModal modal={signUpModal} toggle={handleClick} />
+      <SignUpModal modal={signUpModal} toggle={handleClick} signUpToggle={signUpToggle} />
     </div>
   );
 }

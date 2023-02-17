@@ -99,3 +99,31 @@ body{
   gap: 10px;
 }
 
+
+
+.single{
+  height: 250px;
+  width: 200px;
+}
+
+.products{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.popular{
+  margin: auto;
+  
+}
+
+
+.product-image{
+  height: 100px;
+  width: 80px;
+}
+
+.carouselItem{
+  width: 1000px;
+  margin: auto;
+}

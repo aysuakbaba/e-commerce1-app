@@ -13,7 +13,7 @@ function SignUpModal(props) {
       <Modal isOpen={props.modal} toggle={props.toggle} centered="lg">
         <div className="head-top">
           <header className="modalHeader">Sign Up</header>
-          <button className="cancel" onClick={props.toggle}>
+          <button className="cancel" onClick={props.signUpToggle}>
             <img src={cancel} alt="cancel" />
           </button>
         </div>
