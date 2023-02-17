@@ -103,7 +103,11 @@ body{
 
 .single{
   height: 250px;
-  width: 200px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .products{
@@ -119,11 +123,21 @@ body{
 
 
 .product-image{
-  height: 100px;
-  width: 80px;
+  height: 110px;
+  width: 100px;
 }
 
 .carouselItem{
   width: 1000px;
   margin: auto;
+}
+
+
+.product-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  
 }

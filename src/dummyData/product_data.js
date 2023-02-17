@@ -16,43 +16,43 @@ import sweatshirt from '../assets/sweatshirt.png'
 const product_data = [
     {
         img: sweatshirt,
-        sex: 'man',
+        sex: 'Man',
         category: 'Sweatshirts',
         id: 1
     },
     {
         img: womanPant,
-        sex: 'woman',
+        sex: 'Woman',
         category: 'Pants',
         id: 2
     },
     {
         img: womanSweater,
-        sex: 'woman',
+        sex: 'Woman',
         category: 'Sweaters',
         id: 3
     },
     {
         img: womanCrop,
-        sex:'woman',
+        sex:'Woman',
         category: 'Crops',
         id: 4
     },
     {
         img: womanAccessory,
-        sex: 'woman',
+        sex: 'Woman',
         category:'Accessory',
         id: 5
     },
     {
         img: bomberJacket,
-        sex: 'man',
+        sex: 'Man',
         category:'Coats',
         id: 6
     },
     {
         img: manTshirt,
-        sex:'man',
+        sex:'Man',
         category:'T-shirts',
         id: 7
 
@@ -60,42 +60,42 @@ const product_data = [
     },
     {
         img:manJacket,
-        sex:'man',
+        sex:'Man',
         category:'Jacket',
         id: 8
 
     },
     {
         img:dress,
-        sex:'woman',
+        sex:'Woman',
         category:'Dresses',
         id: 9
 
     },
     {
         img:childCloth,
-        sex:'boy',
+        sex:'Child',
         category:'Tops',
         id: 10
 
     },
     {
         img:babyCloth,
-        sex:'baby',
+        sex:'Baby',
         category:'Overalls',
         id: 11
 
     },
     {
         img:babyDress,
-        sex:'baby',
+        sex:'Baby',
         category:'Baby-Dresses',
         id: 12
 
     },
     {
         img:babyShoes,
-        sex:'baby',
+        sex:'Baby',
         category:'Shoes',
         id: 13
 

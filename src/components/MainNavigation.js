@@ -7,8 +7,17 @@ import favourites from "../assets/heart.png";
 import classes from "./MainNavigation.module.css";
 import LogInModal from "./LogInModal";
 import { LinkStyle } from '../styles/LinkStyle';
+import redHeart from '../assets/redheart.png'
 
 function MainNavigation() {
+
+  const [isHeartHovered, setisHeartHovered] = useState(true)
+  function fullHeart() {
+    setisHeartHovered(true)
+  }
+  function emptyHeart(){
+    setisHeartHovered(false)
+  }
   const [modal, setModal] = useState(false)
   function toggle() {
     setModal((prevModal) => !prevModal)
@@ -25,8 +34,8 @@ function MainNavigation() {
               <LinkStyle>Login</LinkStyle>
             </div>
           
-          <div className={classes.rightContainer}>
-            <img className="head-right-img" src={favourites} alt="favourites" />
+          <div className={classes.rightContainer} onMouseEnter={fullHeart} onMouseLeave={emptyHeart}>
+            <img className="head-right-img" src={isHeartHovered ? redHeart : favourites}  alt="favourites" />
             <LinkStyle to='/favourites' >Favourites</LinkStyle>
           </div>
           <div className={classes.rightContainer}>
