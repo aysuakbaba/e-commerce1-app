@@ -5,7 +5,7 @@ import childCloth from '../assets/cocukgiyim.png'
 import dress from '../assets/dress.png'
 import manJacket from '../assets/erkekceket.png'
 import manTshirt from '../assets/erkektshirt.png'
-import bomberJacket from '../assets/jacket.png'
+import womanCoat from '../assets/kaban.png'
 import womanAccessory from '../assets/kadinaksesuar.png'
 import womanCrop from '../assets/kadinbluz.png'
 import womanSweater from '../assets/kadinhirka.png'
@@ -45,8 +45,8 @@ const product_data = [
         id: 5
     },
     {
-        img: bomberJacket,
-        sex: 'Man',
+        img: womanCoat,
+        sex: 'Woman',
         category:'Coats',
         id: 6
     },

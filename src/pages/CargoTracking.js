@@ -1,6 +1,9 @@
+import MainNavigation from "../components/MainNavigation"
+
 function CargoTracking() {
     return(
         <>
+        <MainNavigation/>
         <h1>Cargo Tracking</h1>
         </>
     )

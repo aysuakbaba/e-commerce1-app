@@ -1,15 +1,16 @@
 import React from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import MainNavigation from "./MainNavigation";
 
 
 
 const divStyle = {
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   backgroundSize: "cover",
-  height: "820px",
+  height: "100vh",
+  maxHeight: "1024px"
   
 };
 
@@ -40,12 +41,15 @@ const fadeImages = [
 const Slideshow = () => {
   return (
     <div className="slide-container">
+      
       <Fade {...proprietes}>
+        
         {fadeImages.map((fadeImage, index) => (
           <div key={index}>
             <div
               style={{ ...divStyle, backgroundImage: `url(${fadeImage.url})` }}
             >
+              <MainNavigation />
             </div>
           </div>
         ))}

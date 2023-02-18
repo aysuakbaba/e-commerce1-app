@@ -46,7 +46,7 @@ function SignUpModal(props) {
           </form>
         </ModalBody>
         <div className="modalFooter">
-          <button onClick={props.toggle} className="modalButton top">
+          <button onClick={props.signUpToggle} className="modalButton top">
             Sign Up
           </button>{" "}
           <button className="modalButton bottom" onClick={props.toggle}>Sign In</button>

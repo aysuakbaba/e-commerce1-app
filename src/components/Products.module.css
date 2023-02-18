@@ -1,4 +1,9 @@
+:root{
+    --main-font-family :'Raleway', sans-serif;
+}
+
 .products{
+    font-family: var(--main-font-family);
     display: flex;
     flex-direction: column;
     gap: 18px;

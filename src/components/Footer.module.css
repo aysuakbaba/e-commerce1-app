@@ -11,6 +11,11 @@
     display: flex;
     flex-direction: column;
     line-height: 30px;
+  
+  }
+
+  .block h4{
+    font-weight: bolder;
   }
 
 

@@ -6,7 +6,6 @@ header{
     height: 100px;
     display: flex;
     justify-content: space-between;
-    align-items:flex-start;
     padding: 30px;
     font-family: var(--main-font-family);
     width: 100%;  
@@ -14,13 +13,15 @@ header{
 }
   
 .logo{
-    height: 40px;
-    width: 40px;
+    height: 100px;
+    width: 140px;
+    
 }
   
 .headerRight{
     display: flex;
     gap: 18px;
+    width: 420px;
 }
   
 img{
@@ -43,5 +44,8 @@ img{
     margin-bottom: 5px;
 }
 
+.sexCategories{
+    width: 420px;
+}
 
-  
+

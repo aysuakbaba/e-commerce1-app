@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/versace.png";
 import cart from "../assets/bag.png";
 import login from "../assets/user.png";
 import favourites from "../assets/heart.png";
@@ -42,6 +42,12 @@ function MainNavigation() {
   return (
     <>
       <header>
+        <div className={classes.sexCategories}>
+          <LinkStyle>Woman</LinkStyle>
+          <LinkStyle>Man</LinkStyle>
+          <LinkStyle>Child</LinkStyle>
+
+        </div>
         <NavLink to="/">
           <img src={logo} alt="logo" className={classes.logo} />
         </NavLink>
