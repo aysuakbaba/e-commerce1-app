@@ -43,9 +43,9 @@ function MainNavigation() {
     <>
       <header>
         <div className={classes.sexCategories}>
-          <LinkStyle>Woman</LinkStyle>
-          <LinkStyle>Man</LinkStyle>
-          <LinkStyle>Child</LinkStyle>
+          <LinkStyle to='/woman'>Woman</LinkStyle>
+          <LinkStyle to='/man'>Man</LinkStyle>
+          <LinkStyle to='/child'>Child</LinkStyle>
 
         </div>
         <NavLink to="/">
