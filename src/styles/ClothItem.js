@@ -16,3 +16,10 @@ export const Image = styled.img`
     width:650px;
 
 `
+
+export const GridContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+`

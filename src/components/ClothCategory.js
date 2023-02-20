@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Category } from "../styles/ClothStyle";
 
 function ClothCategory(){
@@ -6,17 +7,17 @@ function ClothCategory(){
         <Category>
         <h4>Giyim</h4>
         <div>
-            <p>Elbise</p>
-            <p>Gömlek</p>
-            <p>T-shirt</p>
-            <p>Sweatshirt</p>
-            <p>Pantolon</p>
-            <p>Etek</p>
+            <Link>Dresses</Link>
+            <p>Shirt</p>
+            <p>Crops and Tops</p>
+            <p>Sweatshirts</p>
+            <p>Pants</p>
+            <p>Skirts</p>
         </div>
         <h4>Aksesuar</h4>
         <div>
-            <p>Ayakkabi</p>
-            <p>Çanta</p>
+            <p>Shoes</p>
+            <p>Purses</p>
         </div>
         </Category>
     )
