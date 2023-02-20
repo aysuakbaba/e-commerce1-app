@@ -1,0 +1,23 @@
+.modalHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+
+.modalBody{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.check{
+    display: flex;
+    gap: 8px;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+}

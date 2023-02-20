@@ -16,7 +16,7 @@ const divStyle = {
 
 
 const proprietes = {
-    duration: 1500,
+    duration: 500,
     autoplay: true,
     transitionDuration: 500,
     arrows: false,

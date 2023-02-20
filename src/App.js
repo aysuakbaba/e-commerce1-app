@@ -14,6 +14,7 @@ import Favourites from './pages/Favourites';
 import Woman from './pages/Woman'
 import Man from './pages/Man';
 import Child from './pages/Child';
+import ClothLayout from './pages/ClothLayout';
 
 
 const router = createBrowserRouter([
@@ -29,13 +30,15 @@ const router = createBrowserRouter([
     {path:'/distanceSelling', element: <DistanceSelling/>},
     {path:'/cargoDelivery', element:<CargoDelivery/>},
     {path:'/customerServices', element: <CustomerServices/>},
-    {path:'/cargoTracking', element: <CargoTracking/>},
+    {path:'/cargoTracking', element: <CargoTracking/>}
+  ]
+  },
+  {path: '/', element:<ClothLayout/>, children:[
     {path:'/woman' , element:<Woman/>},
     {path:'/man', element: <Man/>},
     {path:'/child' , element:<Child/>}
 
-  ]
-  }
+  ]}
 ])
 
 function App() {
