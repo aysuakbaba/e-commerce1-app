@@ -11,9 +11,9 @@ import CargoDelivery from './pages/CargoDelivery';
 import CustomerServices from './pages/CustomerServices';
 import CargoTracking from './pages/CargoTracking';
 import Favourites from './pages/Favourites';
-import Woman from './pages/Woman'
-import Man from './pages/Man';
-import Child from './pages/Child';
+import Woman from './pages/store/Woman'
+import Man from './pages/store/Man';
+import Child from './pages/store/Child';
 import ClothLayout from './pages/ClothLayout';
 
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     {index:true , element: <HomePage/>},
     {path:'/favourites', element:<Favourites/>},
     {path:'/about', element: <About/>},
-    {path: '/store', element: <Store/>},
+    {path: '/stores', element: <Store/>},
     {path: '/contact', element: <Contact/>},
     {path:'/privacy', element: <Privacy/>},
     {path:'/distanceSelling', element: <DistanceSelling/>},

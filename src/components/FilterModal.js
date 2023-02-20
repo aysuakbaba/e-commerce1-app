@@ -1,15 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import { Modal, ModalBody } from "reactstrap";
 import classes from "./FilterModal.module.css";
-import cancel from "../assets/close.png";
-
+import check from "../assets/check.png";
+import checked from "../assets/checked.png";
 function FilterModal(props) {
+  const [isApplyHovered, setIsApplyHovered] = useState(false);
+
+  function applyHovered() {
+    setIsApplyHovered(true);
+  }
+
+  function applyNotHovered(){
+    setIsApplyHovered(false)
+  }
   return (
     <>
       <Modal isOpen={props.isFilterOpened} centered="lg">
-        <button className="cancel" onClick={props.toggle}>
-          <img src={cancel} alt="cancel" />
-        </button>
         <header className={classes.modalHeader}>Filter</header>
         <ModalBody className={classes.modalBody}>
           <div className={classes.block}>
@@ -47,7 +53,12 @@ function FilterModal(props) {
             </div>
           </div>
         </ModalBody>
-        <div className="modalFooter"></div>
+        <div className="modalFooter">
+          <button className="cancel" onClick={props.toggleFilter} onMouseEnter={applyHovered} onMouseLeave={applyNotHovered}>
+            <img src={isApplyHovered ? checked : check} alt="check" />
+            <p>Apply</p>
+          </button>
+        </div>
       </Modal>
     </>
   );

@@ -133,6 +133,10 @@ body{
   display: flex;
   flex-direction: column;
   width: 200px;
- 
+}
 
+.menu{
+  display: flex;
+  padding-bottom: 50px;
+  
 }

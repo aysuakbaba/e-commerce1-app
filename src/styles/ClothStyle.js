@@ -34,7 +34,8 @@ export const Category = styled.div`
     flex-direction: column;
     margin-top: 32px;
     font-family: 'Raleway', sans-serif;
-    margin-left: 24px
+    margin-left: 24px;
+    width:80px;
     
     
 `
