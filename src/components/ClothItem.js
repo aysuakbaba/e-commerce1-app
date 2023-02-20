@@ -13,6 +13,7 @@ function ClothItem({img , category , price}) {
         </p>
     </Div>
     
+    
   )
 }
 

@@ -140,3 +140,9 @@ body{
   padding-bottom: 50px;
   
 }
+
+.woman-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
