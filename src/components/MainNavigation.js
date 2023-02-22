@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState , useContext} from 'react'
 import { NavLink } from "react-router-dom";
 import logo from "../assets/versace.png";
 import cart from "../assets/bag.png";
@@ -10,8 +10,11 @@ import { LinkStyle } from '../styles/LinkStyle';
 import redHeart from '../assets/redheart.png'
 import user from '../assets/user1.png'
 import blackCart from '../assets/blackCart.png'
+import { CategoryContext } from '../context/categoryContext';
 
 function MainNavigation() {
+  const {changeCategory} = useContext(CategoryContext)
+
   const [isCartHovered, setIsCartHovered] = useState(false)
   function cartHovered(){
     setIsCartHovered(true)
@@ -39,13 +42,14 @@ function MainNavigation() {
   function toggle() {
     setModal((prevModal) => !prevModal)
   }
+
   return (
     <>
       <header>
         <div className={classes.sexCategories}>
-          <LinkStyle to='/woman'>Woman</LinkStyle>
-          <LinkStyle to='/man'>Man</LinkStyle>
-          <LinkStyle to='/child'>Child</LinkStyle>
+          <LinkStyle onClick={() => changeCategory("woman")} to='/woman'>Woman</LinkStyle>
+          <LinkStyle onClick={() => changeCategory("man")} to='/man'>Man</LinkStyle>
+          <LinkStyle onClick={() => changeCategory("child")} to='/child'>Child</LinkStyle>
 
         </div>
         <NavLink to="/">

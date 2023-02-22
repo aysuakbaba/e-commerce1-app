@@ -8,6 +8,14 @@ import shoe from '../assets/clothes/manshoes.png'
 import shoe2 from '../assets/clothes/manshoes2.png'
 import sweat from '../assets/clothes/manSweat.png'
 import sweat2 from '../assets/clothes/manSweat2.png'
+import shirt3 from '../assets/clothes/manShirt.png'
+import jacket from '../assets/clothes/manJacket.png'
+import jacket2 from '../assets/clothes/manJacket2.png'
+import blazer from '../assets/clothes/manBlazer.png'
+import blazer1 from '../assets/clothes/manBlazer1.png'
+import blazer2 from '../assets/clothes/manBlazer3.png'
+
+
 
 
 
@@ -58,6 +66,12 @@ const manClothes_data = [
         price:1249.99
     },
     {
+        id:12,
+        img:jacket2,
+        category: "Jackets",
+        price:6249.99
+    },
+    {
         id:8,
         img:shoe2,
         category: "Shoes",
@@ -74,7 +88,38 @@ const manClothes_data = [
         img:sweat2,
         category: "Sweatshirts",
         price:1249.99
+    },
+    {
+        id:11,
+        img:jacket,
+        category: "Jackets",
+        price:3549.99
+    },
+    {
+        id:13,
+        img:shirt3,
+        category: "Shirts",
+        price:549.99
+    },
+    {
+        id:14,
+        img:blazer,
+        category: "Blazers",
+        price:3649.99
+    },
+    {
+        id:15,
+        img:blazer1,
+        category: "Blazers",
+        price:7549.99
+    },
+    {
+        id:16,
+        img:blazer2,
+        category: "Blazers",
+        price:5549.99
     }
+    
 ]
 
 

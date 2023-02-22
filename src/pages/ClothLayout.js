@@ -18,6 +18,8 @@ function ClothLayout() {
   function toggleFilter() {
     setIsFilterOpened((prevFilter) => !prevFilter);
   }
+
+
   return (
     <>
       <MainNavigation />

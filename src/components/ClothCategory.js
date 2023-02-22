@@ -1,18 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { CategoryContext } from "../context/categoryContext";
 import { Category } from "../styles/ClothStyle";
 
 function ClothCategory(){
+    const {clothCategory} = useContext(CategoryContext)
+
+
+
     return(
         <Category>
-        <h4>Giyim</h4>
         <div>
-            <Link>Dresses</Link>
+            {clothCategory === "woman" ? <p>Dresses</p> : <p>T-shirts</p>}
             <p>Shirt</p>
-            <p>Crops and Tops</p>
+            {clothCategory === "woman" ? <p>Crops and Tops</p> : <p>Jackets</p>}
             <p>Sweatshirts</p>
             <p>Pants</p>
-            <p>Skirts</p>
+            {clothCategory === "woman" ? <p>Skirts</p> : <p>Blazers</p>}
+            
         </div>
         <h4>Aksesuar</h4>
         <div>
