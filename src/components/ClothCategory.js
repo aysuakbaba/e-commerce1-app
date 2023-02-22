@@ -10,12 +10,15 @@ function ClothCategory(){
     return(
         <Category>
         <div>
-            {clothCategory === "woman" ? <p>Dresses</p> : <p>T-shirts</p>}
+            {clothCategory === "woman" || clothCategory === "child" ? <p>Dresses</p> : <p>T-shirts</p>}
+            
             <p>Shirt</p>
             {clothCategory === "woman" ? <p>Crops and Tops</p> : <p>Jackets</p>}
+            {clothCategory === "woman" ? <p>Crops and Tops</p> : <p>Pyjamas</p>}
             <p>Sweatshirts</p>
             <p>Pants</p>
-            {clothCategory === "woman" ? <p>Skirts</p> : <p>Blazers</p>}
+            {clothCategory === "man" ? <p>Blazers</p>: <p>Skirts</p>  }
+           
             
         </div>
         <h4>Aksesuar</h4>
