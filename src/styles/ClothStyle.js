@@ -36,6 +36,9 @@ export const Category = styled.div`
     font-family: 'Raleway', sans-serif;
     margin-left: 24px;
     width:80px;
-    
-    
+      
 `
+
+    
+
+

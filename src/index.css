@@ -141,3 +141,34 @@ body{
   
 }
 
+
+.cardInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  font-family: var(--main-font-family);
+
+}
+
+
+.cardInfo img {
+  height: 24px; 
+  width: 24px;
+}
+
+.card-text{
+  line-height: 8px;
+  padding-top: 8px;
+}
+
+
+.category{
+  display: flex;
+  flex-direction: column;
+  line-height: 40px;
+  
+  
+}
+
