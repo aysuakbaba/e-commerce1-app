@@ -4,19 +4,20 @@ import { Category } from "../styles/ClothStyle";
 import { LinkStyle } from "../styles/LinkStyle";
 
 function ClothCategory() {
-  const { clothCategory } = useContext(CategoryContext);
+  const { findSameWomanCategory, clothCategory, findSameManCategory} = useContext(CategoryContext);
 
   return (
     <Category>
       <div className="category">
         <h4>Giyim</h4>
         {clothCategory === "woman" || clothCategory === "child" ? (
-          <LinkStyle>Dresses</LinkStyle>
+          <div onClick={() => findSameWomanCategory("Dresses")}>Dresses</div>
         ) : (
-          <LinkStyle>Blazers</LinkStyle>
+          <div onClick={() => findSameManCategory("Blazers")}>Blazers</div>
         )}
-        <LinkStyle>Shirt</LinkStyle>
-        <LinkStyle>T-shirts</LinkStyle>
+        <div onClick={() => findSameWomanCategory("Shirt")}>Shirt</div>
+
+        <div onClick={() => findSameManCategory("T-Shirts")}>T-Shirts</div>
         {clothCategory === "man" || clothCategory === "child" ? (
           <LinkStyle>Jackets</LinkStyle>
         ) : (

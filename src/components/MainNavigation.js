@@ -47,9 +47,9 @@ function MainNavigation() {
     <>
       <header>
         <div className={classes.sexCategories}>
-          <LinkStyle onClick={() => changeCategory("woman")} to='/woman'>Woman</LinkStyle>
-          <LinkStyle onClick={() => changeCategory("man")} to='/man'>Man</LinkStyle>
-          <LinkStyle onClick={() => changeCategory("child")} to='/child'>Child</LinkStyle>
+          <LinkStyle onClick={() =>changeCategory("woman")} to='/woman'>Woman</LinkStyle>
+          <LinkStyle onClick={() =>changeCategory("man")} to='/man'>Man</LinkStyle>
+          <LinkStyle onClick={() =>changeCategory("child")} to='/child'>Child</LinkStyle>
 
         </div>
         <NavLink to="/">

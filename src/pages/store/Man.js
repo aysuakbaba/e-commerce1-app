@@ -1,19 +1,10 @@
-import manClothes_data from "../../dummyData/manClothes_data"
-import ClothItem from "../../components/ClothItem"
-import { GridContainer } from "../../styles/ClothItem"
+import { useContext } from "react";
+import { CategoryContext } from "../../context/categoryContext";
+import { GridContainer } from "../../styles/ClothItem";
 function Man() {
-    const manData = manClothes_data.map(clothes => <ClothItem key={clothes.id} img={clothes.img} category={clothes.category} price={clothes.price}/>)
-    return(
+  const { manData } = useContext(CategoryContext);
 
-        <GridContainer>
-        {manData}
-        
-        
-        </GridContainer>
-    )
+  return <GridContainer>{manData}</GridContainer>;
 }
 
-
-
-
-export default Man
+export default Man;

@@ -1,14 +1,14 @@
-import ClothItem from "../../components/ClothItem"
-import womanClothes_data from "../../dummyData/womanClothes_data"
 import { GridContainer } from "../../styles/ClothItem"
+import { CategoryContext } from "../../context/categoryContext"
+import { useContext } from "react"
 
 
 function Woman() {
-    const womanData = womanClothes_data.map(clothes => <ClothItem key={clothes.id} img={clothes.img} category={clothes.category} price={clothes.price}/>)
+    const {womanData} = useContext(CategoryContext)
     return(
         <GridContainer>
+            {womanData}
         
-        {womanData}
         </GridContainer>
     )
 }
