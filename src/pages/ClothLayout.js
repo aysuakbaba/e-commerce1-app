@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import MainNavigation from "../components/MainNavigation";
@@ -7,8 +7,10 @@ import filter from "../assets/edit.png";
 import { Image, Div, Title, Container } from "../styles/ClothStyle";
 import ClothCategory from "../components/ClothCategory";
 import FilterModal from "../components/FilterModal";
+import { CategoryContext } from "../context/categoryContext";
 
 function ClothLayout() {
+  const {changeCategory} = useContext(CategoryContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   function toggleMenu() {
     setIsMenuOpened((prevMenu) => !prevMenu);
@@ -23,7 +25,7 @@ function ClothLayout() {
   return (
     <>
       <MainNavigation />
-      <Title>View All</Title>
+      <Title>VIEW ALL</Title>
       <Container>
         <div className="menu">
           <div className="menu-filter">

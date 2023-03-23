@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import childClothes_data from "../../dummyData/childClothes_data"
 import ClothItem from "../../components/ClothItem"
 import { GridContainer } from "../../styles/ClothItem"
+import { CategoryContext } from "../../context/categoryContext"
 function Child() {
-    const childData = childClothes_data.map(clothes => <ClothItem key={clothes.id} img={clothes.img} category={clothes.category} price={clothes.price}/>)
+    const { childData } = useContext(CategoryContext)
     return(
 
         <GridContainer>

@@ -14,7 +14,6 @@ import purse from '../assets/clothes/purse.png'
 import purse2 from '../assets/clothes/purse2.png'
 
 
-
 const womanClothes_data = [
     {
         id:1,
