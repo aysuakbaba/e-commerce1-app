@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import cancel from "../assets/close.png";
+import { CategoryContext } from "../context/categoryContext";
 import SignUpModal from "./SignUpModal";
 
 function LogInModal(props) {
-  const [signUpModal, setSignUpModal] = React.useState(false);
+  const {handleLogin, user} = useContext(CategoryContext)
+  const [signUpModal, setSignUpModal] = useState(false);
+  const [email, setEmail] = useState("")
+  const [password , setPassword] = useState("")
 
   function signUpToggle() {
     setSignUpModal((prevSignUpModal) => !prevSignUpModal);
@@ -14,6 +18,8 @@ function LogInModal(props) {
     props.toggle();
     signUpToggle();
   }
+
+
 
   return (
     <div>
@@ -33,6 +39,8 @@ function LogInModal(props) {
               id="user-email"
               name="email"
               className="input-style"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
             <br />
             <label for="password">Password</label>
@@ -41,7 +49,10 @@ function LogInModal(props) {
               type="password"
               id="user-password"
               name="password"
+              value={password}
               className="input-style"
+              onChange={e => setPassword(e.target.value)}
+
             />
             <br />
             <div className="remember">
@@ -52,7 +63,7 @@ function LogInModal(props) {
           </form>
         </ModalBody>
         <div className="modalFooter">
-          <button onClick={props.toggle} className="modalButton top">
+          <button onClick={() => handleLogin(email, password)}  className="modalButton top">
             Sign In
           </button>{" "}
           <button onClick={handleClick} className="modalButton bottom">

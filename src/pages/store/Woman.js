@@ -12,7 +12,6 @@ function Woman() {
         const response = await axios.get("/cloth");
        
       } catch (e) {
-        console.log(e);
       }
     };
     fetchData();

@@ -40,12 +40,17 @@ img{
 
 
 .rightText{
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 5px;
 }
 
 .sexCategories{
     width: 420px;
+}
+
+.container{
+    display: flex;
+    gap: 30px;
 }
 
 

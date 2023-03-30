@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 import womanClothes_data from "../dummyData/womanClothes_data";
 import ClothItem from "../components/ClothItem";
 import manClothes_data from "../dummyData/manClothes_data";
@@ -12,10 +12,14 @@ export const CategoryContext = createContext({
   manData: [],
   childData: [],
   favourites: [],
+  user: {},
+  token: "",
+  isLoggedIn: false,
   findSameWomanCategory: (category) => {},
   findSameManCategory: (category) => {},
   addToFavourites: (clothObj) => {},
-  removeFavourite: (id) => {}
+  removeFavourite: (id) => {},
+  handleLogin: (email, password) => {},
 });
 
 export default function CategoryContextProvider({ children }) {
@@ -23,29 +27,43 @@ export default function CategoryContextProvider({ children }) {
   const [womanData, setWomanData] = useState([]);
   const [manData, setManData] = useState([]);
   const [childData, setChildData] = useState([]);
-  const [favourites, setFavourites] = useState([])
-  
-
-  useEffect(() => {
-    console.log(favourites)
-    
-
-  },[favourites])
+  const [favourites, setFavourites] = useState([]);
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState("")
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 
-  function addToFavourites(clothObj){
-    setFavourites(prevFav =>
-      [
-        ...prevFav,
-        clothObj
-      ]
-    )
 
+  const injectToken = token => {
+    axios.defaults.headers.Authorization = 'Bearer ' + token
   }
 
-  function removeFavourite(id){
-    setFavourites(prevFav => prevFav.filter(item => item.id !== id))
+  const handleLogin = useCallback(async (email, password) => {
+    const response = await axios.post("/user/login", {
+      email,
+      password
+    });
+    console.log(response)
 
+    if (response?.data?.token) {
+      const token = response.data.token
+      const user = response.data.user
+      console.log(token)
+      console.log(user)
+
+      setUser(user)
+      setToken(token)
+      injectToken(token)
+      setIsLoggedIn(true)
+    }
+  }, [])
+
+  function addToFavourites(clothObj) {
+    setFavourites((prevFav) => [...prevFav, clothObj]);
+  }
+
+  function removeFavourite(id) {
+    setFavourites((prevFav) => prevFav.filter((item) => item.id !== id));
   }
 
   function changeCategory(category) {
@@ -57,7 +75,6 @@ export default function CategoryContextProvider({ children }) {
     try {
       const response = await axios.get("/cloth");
       const womanData = response.data.filter((data) => data.gender === "Woman");
-      console.log(womanData)
       setWomanData(
         womanData.map((clothes) => (
           <ClothItem
@@ -125,8 +142,8 @@ export default function CategoryContextProvider({ children }) {
     const found = manClothes_data.filter((man) => man.category === category);
     const foundMan = found.map((clothes) => (
       <ClothItem
-            id={clothes._id}
-            key={clothes._id}
+        id={clothes._id}
+        key={clothes._id}
         img={clothes.img}
         category={clothes.category}
         price={clothes.price}
@@ -143,10 +160,14 @@ export default function CategoryContextProvider({ children }) {
     manData: manData,
     childData: childData,
     favourites: favourites,
+    user: user,
+    token: token,
+    isLoggedIn: isLoggedIn,
     addToFavourites: addToFavourites,
     removeFavourite: removeFavourite,
     findSameWomanCategory: findSameWomanCategory,
     findSameManCategory: findSameManCategory,
+    handleLogin: handleLogin,
   };
   return (
     <CategoryContext.Provider value={value}>
