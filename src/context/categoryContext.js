@@ -4,7 +4,6 @@ import ClothItem from "../components/ClothItem";
 import manClothes_data from "../dummyData/manClothes_data";
 import axios from "axios";
 
-
 export const CategoryContext = createContext({
   clothCategory: "",
   changeCategory: (category) => {},
@@ -14,12 +13,14 @@ export const CategoryContext = createContext({
   favourites: [],
   user: {},
   token: "",
+  error: false,
   isLoggedIn: false,
   findSameWomanCategory: (category) => {},
   findSameManCategory: (category) => {},
   addToFavourites: (clothObj) => {},
   removeFavourite: (id) => {},
   handleLogin: (email, password) => {},
+  handleRegister: (name, surname, email, password) => {},
 });
 
 export default function CategoryContextProvider({ children }) {
@@ -29,34 +30,76 @@ export default function CategoryContextProvider({ children }) {
   const [childData, setChildData] = useState([]);
   const [favourites, setFavourites] = useState([]);
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState("")
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [token, setToken] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState(false);
 
+  const injectToken = (token) => {
+    axios.defaults.headers.Authorization = "Bearer " + token;
+  };
 
+  const handleRegister = async (name, surname, email, password) => {
+    try {
+      const response = await axios.post("/user", {
+        name,
+        surname,
+        email,
+        password,
+      });
+      console.log(response)
+      if(response?.data?.token){
+        const dbResult = response.data
+        const token = dbResult.token
+        const user = {
+          ...dbResult.user,
+          username: dbResult.user.name + " " + dbResult.user.surname
+        }
+        setUser(user)
+        setToken(token)
+        injectToken(token)
+        setIsLoggedIn(true);
+        setError(false);
+        return
 
-  const injectToken = token => {
-    axios.defaults.headers.Authorization = 'Bearer ' + token
-  }
-
-  const handleLogin = useCallback(async (email, password) => {
-    const response = await axios.post("/user/login", {
-      email,
-      password
-    });
-    console.log(response)
-
-    if (response?.data?.token) {
-      const token = response.data.token
-      const user = response.data.user
-      console.log(token)
-      console.log(user)
-
-      setUser(user)
-      setToken(token)
-      injectToken(token)
-      setIsLoggedIn(true)
+      }
+      setError(true)
+    } catch (e) {
+      setError(true);
+      console.log(e.message);
     }
-  }, [])
+  };
+
+  const handleLogin = async (email, password) => {
+    try {
+      const response = await axios.post("/user/login", {
+        email,
+        password,
+      });
+      console.log(response);
+
+      if (response?.data?.token) {
+        const dbResult = response.data;
+        const token = dbResult.token;
+        const user = {
+          ...dbResult.user,
+          username: dbResult.user.name + " " + dbResult.user.surname,
+        };
+        console.log(user);
+
+        setUser(user);
+        setToken(token);
+        injectToken(token);
+        setIsLoggedIn(true);
+        setError(false);
+        return;
+      }
+      setError(true);
+    } catch (e) {
+      setError(true);
+
+      console.log(e.message);
+    }
+  };
 
   function addToFavourites(clothObj) {
     setFavourites((prevFav) => [...prevFav, clothObj]);
@@ -163,11 +206,13 @@ export default function CategoryContextProvider({ children }) {
     user: user,
     token: token,
     isLoggedIn: isLoggedIn,
+    error: error,
     addToFavourites: addToFavourites,
     removeFavourite: removeFavourite,
     findSameWomanCategory: findSameWomanCategory,
     findSameManCategory: findSameManCategory,
     handleLogin: handleLogin,
+    handleRegister: handleRegister,
   };
   return (
     <CategoryContext.Provider value={value}>

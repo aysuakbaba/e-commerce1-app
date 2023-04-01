@@ -31,9 +31,17 @@ body{
 .modalBody{
   display: flex;
   flex-direction: column;
-  height: 340px;
+  height: 500px;
  
   
+}
+
+.logInModal{
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+ 
+
 }
 
 .modalHeader{

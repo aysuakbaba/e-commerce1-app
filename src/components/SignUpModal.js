@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import cancel from "../assets/close.png";
+import { CategoryContext } from "../context/categoryContext";
+
 
 
 function SignUpModal(props) {
+
+  const { handleRegister,error, isLoggedIn } = useContext(CategoryContext)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name , setName] = useState("")
+  const [surname , setSurname] = useState("")
+
+  function handleSubmit() {
+    handleRegister(name, surname,email, password);
+    if(!error){
+
+      setName("")
+      setSurname("")
+      setEmail("")
+      setPassword("")
+    }
+
+    
+  }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      props.toggle();
+    }
+  }, [props]);
+
   
 
 
@@ -19,6 +47,28 @@ function SignUpModal(props) {
         </div>
         <ModalBody className="modalBody">
           <form className="modal_form">
+          <label for="name">Name</label>
+            <br />
+            <input
+              type="text"
+              id="user-name"
+              name="name"
+              className="input-style"
+              value={name}
+              onChange= {(e) => setName(e.target.value)}
+            />
+            <br />
+            <label for="surname">Surname</label>
+            <br />
+            <input
+              type="text"
+              id="user-surname"
+              name="surname"
+              className="input-style"
+              value={surname}
+              onChange= {(e) => setSurname(e.target.value)}
+            />
+            <br />
             <label for="email">E-mail</label>
             <br />
             <input
@@ -26,8 +76,11 @@ function SignUpModal(props) {
               id="user-email"
               name="email"
               className="input-style"
+              value={email}
+              onChange= {(e) => setEmail(e.target.value)}
             />
             <br />
+            {error && "This email is already used."}
             <label for="password">Password</label>
             <br />
             <input
@@ -35,18 +88,14 @@ function SignUpModal(props) {
               id="user-password"
               name="password"
               className="input-style"
+              value={password}
+              onChange= {(e) => setPassword(e.target.value)}
             />
             <br />
-            <div className="date">
-              <label for="date">Birthday</label>
-              <input type="date" id="date-time" name="date" />
-
-              <br />
-            </div>
           </form>
         </ModalBody>
         <div className="modalFooter">
-          <button onClick={props.signUpToggle} className="modalButton top">
+          <button onClick={handleSubmit} className="modalButton top">
             Sign Up
           </button>{" "}
           <button className="modalButton bottom" onClick={props.toggle}>Sign In</button>

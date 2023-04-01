@@ -68,7 +68,7 @@ function MainNavigation() {
             onMouseLeave={loginNotHovered}
           >
             <img src={isloginHovered ? userPic : login} alt="login" />
-            <LinkStyle>{isLoggedIn ? user.name : "Login"}</LinkStyle>
+            <LinkStyle>{isLoggedIn ? user.username : "Login"}</LinkStyle>
           </div>
           {isLoggedIn ? (
             <div className={classes.container}>

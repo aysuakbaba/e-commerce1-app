@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import cancel from "../assets/close.png";
 import { CategoryContext } from "../context/categoryContext";
 import SignUpModal from "./SignUpModal";
 
 function LogInModal(props) {
-  const {handleLogin, user} = useContext(CategoryContext)
+  const { handleLogin, isLoggedIn, error } = useContext(CategoryContext);
   const [signUpModal, setSignUpModal] = useState(false);
-  const [email, setEmail] = useState("")
-  const [password , setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function signUpToggle() {
     setSignUpModal((prevSignUpModal) => !prevSignUpModal);
@@ -19,7 +19,15 @@ function LogInModal(props) {
     signUpToggle();
   }
 
+  function handleSubmit() {
+    handleLogin(email, password);
+  }
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      props.toggle();
+    }
+  }, [props]);
 
   return (
     <div>
@@ -30,7 +38,7 @@ function LogInModal(props) {
             <img src={cancel} alt="cancel" />
           </button>
         </div>
-        <ModalBody className="modalBody">
+        <ModalBody className="logInModal">
           <form className="modal_form">
             <label for="email">E-mail</label>
             <br />
@@ -40,7 +48,7 @@ function LogInModal(props) {
               name="email"
               className="input-style"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <br />
             <label for="password">Password</label>
@@ -51,8 +59,7 @@ function LogInModal(props) {
               name="password"
               value={password}
               className="input-style"
-              onChange={e => setPassword(e.target.value)}
-
+              onChange={(e) => setPassword(e.target.value)}
             />
             <br />
             <div className="remember">
@@ -61,9 +68,10 @@ function LogInModal(props) {
               <br />
             </div>
           </form>
+          {error && <p>Your email or password is wrong</p>}
         </ModalBody>
         <div className="modalFooter">
-          <button onClick={() => handleLogin(email, password)}  className="modalButton top">
+          <button onClick={handleSubmit} className="modalButton top">
             Sign In
           </button>{" "}
           <button onClick={handleClick} className="modalButton bottom">
@@ -71,7 +79,11 @@ function LogInModal(props) {
           </button>
         </div>
       </Modal>
-      <SignUpModal modal={signUpModal} toggle={handleClick} signUpToggle={signUpToggle} />
+      <SignUpModal
+        modal={signUpModal}
+        toggle={handleClick}
+        signUpToggle={signUpToggle}
+      />
     </div>
   );
 }
