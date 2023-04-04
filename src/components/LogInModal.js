@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import cancel from "../assets/close.png";
 import { CategoryContext } from "../context/categoryContext";
 import SignUpModal from "./SignUpModal";
 
 function LogInModal(props) {
-  const { handleLogin, isLoggedIn, error } = useContext(CategoryContext);
+  const { handleLogin, isLoggedIn, logInError } = useContext(CategoryContext);
   const [signUpModal, setSignUpModal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,18 +19,19 @@ function LogInModal(props) {
     signUpToggle();
   }
 
-  function handleSubmit() {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     handleLogin(email, password);
+   
   }
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      props.toggle();
-    }
-  }, [props]);
+  
+ 
 
+  
   return (
     <div>
+      {!isLoggedIn &&
       <Modal isOpen={props.modal} toggle={props.toggle} centered="lg">
         <div className="head-top">
           <header className="modalHeader">Sign In</header>
@@ -68,7 +69,7 @@ function LogInModal(props) {
               <br />
             </div>
           </form>
-          {error && <p>Your email or password is wrong</p>}
+          {logInError && <p>Your email or password is wrong</p>}
         </ModalBody>
         <div className="modalFooter">
           <button onClick={handleSubmit} className="modalButton top">
@@ -78,7 +79,7 @@ function LogInModal(props) {
             Register
           </button>
         </div>
-      </Modal>
+      </Modal>}
       <SignUpModal
         modal={signUpModal}
         toggle={handleClick}

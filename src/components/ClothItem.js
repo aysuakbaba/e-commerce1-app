@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Div, Image } from "../styles/ClothItem";
 import heart from "../assets/heart.png";
 import { CategoryContext } from "../context/categoryContext";
@@ -7,28 +7,23 @@ import redHeart from "../assets/redheart.png";
 function ClothItem({ id, img, category, price }) {
 
   const [isHeartFull, setIsHeartFull] = useState(false);
-  const { addToFavourites, removeFavourite, favourites } = useContext(CategoryContext);
+  const { addToFavourites,removeFavourite} = useContext(CategoryContext);
 
-  useEffect(() => {
-    const item = favourites.find(item => item._id === id)
-  }, [favourites, id])
+  // useEffect(() => {
+  //   favourites.find(item => item._id === id)
+  // }, [favourites, id])
 
   function toggleHeart() {
     setIsHeartFull((prevHeart) => !prevHeart);
+    
   }
-  const clothObj = {
-    id,
-    category,
-    price,
-    img,
-  };
-
+ 
   function callToggleHeartandFavourites() {
     if (isHeartFull) {
       removeFavourite(id);
       toggleHeart();
     } else {
-      addToFavourites(clothObj);
+      addToFavourites(id);
       toggleHeart();
     }
   }

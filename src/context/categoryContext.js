@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useCallback } from "react";
+import { createContext, useCallback, useEffect, useState } from "react";
 import womanClothes_data from "../dummyData/womanClothes_data";
 import ClothItem from "../components/ClothItem";
 import manClothes_data from "../dummyData/manClothes_data";
@@ -13,11 +13,12 @@ export const CategoryContext = createContext({
   favourites: [],
   user: {},
   token: "",
-  error: false,
+  logInError: false,
+  registerError: false,
   isLoggedIn: false,
   findSameWomanCategory: (category) => {},
   findSameManCategory: (category) => {},
-  addToFavourites: (clothObj) => {},
+  addToFavourites: (favourites) => {},
   removeFavourite: (id) => {},
   handleLogin: (email, password) => {},
   handleRegister: (name, surname, email, password) => {},
@@ -32,11 +33,23 @@ export default function CategoryContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [error, setError] = useState(false);
+  const [logInError, setLogInError] = useState(false);
+  const [registerError, setRegisterError] = useState(false)
 
   const injectToken = (token) => {
     axios.defaults.headers.Authorization = "Bearer " + token;
   };
+
+  // const addToFavourites = async (id) => {
+  //   try{
+  //     const response = await axios.post('/user/favourites/' + id)
+  //     console.log(response)
+
+  //   }catch(e){
+  //     console.log(e.message)
+
+  //   }
+  // }
 
   const handleRegister = async (name, surname, email, password) => {
     try {
@@ -58,18 +71,18 @@ export default function CategoryContextProvider({ children }) {
         setToken(token)
         injectToken(token)
         setIsLoggedIn(true);
-        setError(false);
+        setRegisterError(false);
         return
 
       }
-      setError(true)
+      setRegisterError(true)
     } catch (e) {
-      setError(true);
+      setRegisterError(true);
       console.log(e.message);
     }
   };
 
-  const handleLogin = async (email, password) => {
+  const handleLogin = useCallback(async (email, password) => {
     try {
       const response = await axios.post("/user/login", {
         email,
@@ -90,20 +103,19 @@ export default function CategoryContextProvider({ children }) {
         setToken(token);
         injectToken(token);
         setIsLoggedIn(true);
-        setError(false);
+        setLogInError(false);
         return;
       }
-      setError(true);
+      setIsLoggedIn(false)
+      setLogInError(true);
     } catch (e) {
-      setError(true);
+      setLogInError(true);
 
       console.log(e.message);
     }
-  };
+  }, []);
 
-  function addToFavourites(clothObj) {
-    setFavourites((prevFav) => [...prevFav, clothObj]);
-  }
+  
 
   function removeFavourite(id) {
     setFavourites((prevFav) => prevFav.filter((item) => item.id !== id));
@@ -206,8 +218,8 @@ export default function CategoryContextProvider({ children }) {
     user: user,
     token: token,
     isLoggedIn: isLoggedIn,
-    error: error,
-    addToFavourites: addToFavourites,
+    logInError: logInError,
+    registerError: registerError,
     removeFavourite: removeFavourite,
     findSameWomanCategory: findSameWomanCategory,
     findSameManCategory: findSameManCategory,

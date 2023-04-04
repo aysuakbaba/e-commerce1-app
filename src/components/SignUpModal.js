@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Modal, ModalBody } from "reactstrap";
 import cancel from "../assets/close.png";
 import { CategoryContext } from "../context/categoryContext";
@@ -7,31 +7,24 @@ import { CategoryContext } from "../context/categoryContext";
 
 function SignUpModal(props) {
 
-  const { handleRegister,error, isLoggedIn } = useContext(CategoryContext)
+  const { handleRegister, registerError} = useContext(CategoryContext)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name , setName] = useState("")
   const [surname , setSurname] = useState("")
 
-  function handleSubmit() {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     handleRegister(name, surname,email, password);
-    if(!error){
+    if(!registerError){
 
       setName("")
       setSurname("")
       setEmail("")
       setPassword("")
     }
-
-    
+    props.toggle()
   }
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      props.toggle();
-    }
-  }, [props]);
-
   
 
 
@@ -80,7 +73,7 @@ function SignUpModal(props) {
               onChange= {(e) => setEmail(e.target.value)}
             />
             <br />
-            {error && "This email is already used."}
+            {registerError && "This email is already used."}
             <label for="password">Password</label>
             <br />
             <input
